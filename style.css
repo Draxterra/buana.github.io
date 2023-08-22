@@ -361,13 +361,7 @@ footer .logo {
       aspect-ratio: 0.6666666667;
       min-width: calc((100% / 2) - 2rem);
    }
-   footer {
-    bottom: unset;
-   }
-   .col-contact {
-    flex-basis: 100%;
-    
-  }
+  
   }
   @media (min-width: 940px) {
     .slider__item {
