@@ -1,0 +1,378 @@
+:root {
+    --scrollcolor: #fff;
+    --scrollbackground: #141e27;
+  }
+
+@font-face {
+    font-family: brand;
+    src: url(font/Genera-SemiBold.ttf);
+}
+
+html {
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 2000px;
+}
+
+.mynavbar {
+    font-size: 1.3rem;
+    background-color: #fcfcfc !important;
+    position: sticky;
+    backdrop-filter:blur(4px) ;
+    top: 0;
+    
+
+}
+
+.mynavbar .navbar-brand {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    font-weight: 700;
+    color: #0077b6;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0);
+    display: flex;
+    align-items: center; /* Mengatur konten vertikal ke tengah */
+
+}
+
+.mynavbar .navbar-brand img {
+    width: 130px; /* Sesuaikan lebar gambar logo sesuai preferensi Anda */
+    margin-right: 100px; /* Atur jarak antara logo dan teks */
+    background: none !important;
+}
+
+.mynavbar .navbar-brand span {
+    font-size: 1.2rem; /* Sesuaikan ukuran teks sesuai preferensi Anda */
+}
+.mynavbar .navbar-nav {
+    margin-right: 10px; /* Adjust the value to your preference */
+    
+}
+
+.navbar-nav .nav-link {
+    position: relative; /* Menambahkan posisi relatif untuk item */
+  }
+  
+  .navbar-nav .nav-link::before {
+    content: ""; /* Membuat elemen pseudo untuk garis bawah */
+    position: absolute;
+    bottom:1px; /* Menempatkan elemen pseudo tepat di bawah teks */
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #070707; /* Warna garis bawah */
+    transition: width 1s ease; /* Efek transisi smooth */
+  }
+  
+  .navbar-nav .nav-link:hover::before {
+    width: 100%; /* Munculkan garis bawah secara smooth */
+
+  }
+
+  /* Menyembunyikan navbar saat digulir ke bawah */
+.navbar-hide {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Atur nilai z-indeks agar navbar tetap berada di atas */
+
+  }
+  
+  /* Menampilkan kembali navbar saat digulir ke atas */
+  .navbar-show {
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000; /* Atur nilai z-indeks agar navbar tetap berada di atas */
+
+  }
+
+.hero {
+    position: relative;
+    height: 70vh;
+}
+.hero::before {
+    content: '';
+    top:0;
+    left: 0;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-image: url(img/container-ship-6669916_1280.jpg);
+    background-size: cover;
+    z-index: -1;
+    background-position: center;
+    /* margin-top: 6rem; */
+}
+
+.hero .brand  {
+    margin-top: 7rem;
+    align-items: center; /* Mengatur konten vertikal ke tengah */
+    justify-content: center; /* Mengatur konten horizontal ke tengah */
+    height: 85vh; /* Menutupi tinggi viewport */
+    color: azure;
+    text-transform: uppercase;
+    font-family: brand;
+    
+}
+
+.hero .brand h1 {
+    font-weight: 900;
+    font-size: 3.5rem;
+}
+
+.info {
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+    /* font-weight: bold; */
+    margin-top: -2rem;
+    
+    
+}
+
+.info h1 {
+    background-color: #4682A9;
+    padding: 10px;
+    
+    
+    color: aliceblue;
+}
+
+.info h2 {
+    font-weight: 400;
+    font-family: brand;
+    text-transform: uppercase;
+}
+
+.info p{
+    font-size: 1.2rem;
+    text-align: justify;
+    margin-top: 40px;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    font-family: system-ui;
+    line-height: 1.1;
+    font-weight: 300;
+    color: #fff;
+    margin: 4rem auto 1rem;
+    width: 85%;
+    max-width: 1280px;
+  }
+  .slider {
+    width: 85%;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .slider__content {
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    scrollbar-color: var(--scrollcolor) var(--scrollbackground);
+  }
+  .slider__content::-webkit-scrollbar {
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 1rem;
+    background: var(--scrollbackground);
+  }
+  .slider__content::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background: var(--scrollcolor);
+  }
+  .slider__content::-webkit-scrollbar-track {
+    border-radius: 1rem;
+    background: var(--scrollbackground);
+  }
+  .slider__item {
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-width: 100%;
+    width: 100%;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 1;
+  }
+
+  .slider__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .slider__info {
+    position: relative;
+    padding: 4rem 2rem 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(32, 50, 57, 0));
+  }
+  .slider__info h2 {
+    color: #fff;
+    font-family: system-ui;
+    line-height: 1.1;
+    font-weight: 300;
+    font-size: 1.75rem;
+    margin: 0;
+  }
+  .slider__nav {
+    margin: 1rem 0 4rem;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    align-content: center;
+    align-items: center;
+    pointer-events: none;
+  }
+  @media (min-width: 460px) {
+    .slider__nav {
+      justify-content: flex-end;
+   }
+  }
+  .slider__nav__button {
+    margin: 0;
+    appearance: none;
+    border: 0;
+    border-radius: 2rem;
+    background: #fff;
+    color: #203239;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    line-height: 1;
+    pointer-events: none;
+    transition: 0.2s ease-out;
+    opacity: 0.25;
+  }
+  .slider__nav__button--active {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+.Gallery {
+    margin-top: -8rem;
+}
+.Gallery h1 {
+    font-family: brand;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  /* position: absolute; */
+  bottom: 0;
+  background: linear-gradient(to right,  #93A5CF, #E4EfE9);
+  color :#fff;
+  border-top-left-radius: 115px;
+  padding: 90px 0 30px;
+  font-size: 15px;
+  line-height: 20px;
+  text-align: justify;
+}
+
+footer .row-contact {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  
+}
+
+.col-contact {
+  flex-basis: 20%;
+  padding: 5px;
+  margin: 5px;
+  
+}
+
+.col-contact h3 {
+  width: fit-content;
+  margin-bottom: 85px;
+  margin-top: 20px;
+}
+
+.col-contact p{
+  margin-top: 30px;
+}
+
+.col-contact .PT {
+  margin-top: -2rem;
+}
+.col-contact .email-id{
+  width: fit-content;
+  border-bottom: 1px solid #ccc;
+  margin: 40px 0;
+}
+.col-contact h4{
+  margin-top: -1rem;
+  font-size: 16px;
+  width: fit-content;
+}
+
+/* .col-contact h3 {
+  margin-left: 2rem;
+} */
+.col-contact ul li{
+  list-style: none;
+  margin-bottom: 12px;
+  padding: 0;
+  margin-left: -2rem;
+}
+
+.col-contact ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+
+footer .logo {
+  width: 160px;
+  margin-bottom: 30px;
+}
+
+.col-contact .logo {
+  margin-top: 5rem;
+  width: 200px;
+}
+
+
+
+/* Media querry */
+@media (min-width: 460px) {
+    .slider__item {
+      aspect-ratio: 0.6666666667;
+      min-width: calc((100% / 2) - 2rem);
+   }
+   footer {
+    bottom: unset;
+   }
+   .col-contact {
+    flex-basis: 100%;
+    
+  }
+  }
+  @media (min-width: 940px) {
+    .slider__item {
+      min-width: calc((100% / 3) - 4rem);
+   }
+  }
+  
+ 
